@@ -1,0 +1,35 @@
+{
+    "pack": {
+        "pack_format": 18,
+        "supported_formats": [
+            18,
+            46
+        ],
+        "description": "Wallbash UI - v1 for Minecraft 1.20.2+"
+    },
+    "overlays": {
+        "entries": [
+            {
+                "formats": {
+                    "min_inclusive": 18,
+                    "max_inclusive": 22
+                },
+                "directory": "20.2-20.4"
+            },
+            {
+                "formats": {
+                    "min_inclusive": 18,
+                    "max_inclusive": 34
+                },
+                "directory": "20.2-21.1"
+            },
+            {
+                "formats": {
+                    "min_inclusive": 18,
+                    "max_inclusive": 42
+                },
+                "directory": "20.2-21.3"
+            }
+        ]
+    }
+}
