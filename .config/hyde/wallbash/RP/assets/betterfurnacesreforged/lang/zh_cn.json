@@ -1,0 +1,17 @@
+{
+    "itemGroup.betterfurnacesreforged": "§f更好的熔炉重铸版",
+    "block.betterfurnacesreforged.cobblestone_generator": "§f圆石发电机",
+    "block.betterfurnacesreforged.diamond_furnace": "§f钻石熔炉",
+    "block.betterfurnacesreforged.extreme_forge": "§f极限锻造炉",
+    "block.betterfurnacesreforged.extreme_furnace": "§f极限熔炉",
+    "block.betterfurnacesreforged.gold_furnace": "§f金熔炉",
+    "block.betterfurnacesreforged.iron_furnace": "§f铁熔炉",
+    "block.betterfurnacesreforged.netherhot_furnace": "§f下界热熔炉",
+    "item.betterfurnacesreforged.color_upgrade": "§f颜色升级",
+    "gui.betterfurnacesreforged.color.blue": "§f蓝：",
+    "gui.betterfurnacesreforged.color.green": "§f绿：",
+    "gui.betterfurnacesreforged.color.red": "§f红：",
+    "block.betterfurnacesreforged.fuel_verifier": "§f燃料效率检验器",
+    "gui.betterfurnacesreforged.fuel.items": "§f物品",
+    "gui.betterfurnacesreforged.fuel.melts": "§f烧炼"
+}

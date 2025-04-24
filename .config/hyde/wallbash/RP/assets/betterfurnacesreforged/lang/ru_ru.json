@@ -1,0 +1,11 @@
+{
+    "block.betterfurnacesreforged.cobblestone_generator": "§fГенератор булыжника",
+    "block.betterfurnacesreforged.diamond_furnace": "§fАлмазная печь",
+    "block.betterfurnacesreforged.extreme_forge": "§fЭкстремальная кузница",
+    "block.betterfurnacesreforged.extreme_furnace": "§fкстремальная печь",
+    "block.betterfurnacesreforged.gold_furnace": "§fЗолотая печь",
+    "block.betterfurnacesreforged.iron_furnace": "§fЖелезная печь",
+    "block.betterfurnacesreforged.netherhot_furnace": "§fАдски горячая печь",
+    "item.betterfurnacesreforged.color_upgrade": "§fОбновление цвета",
+    "block.betterfurnacesreforged.fuel_verifier": "§fУсилитель топливной мощности"
+}

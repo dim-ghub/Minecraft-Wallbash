@@ -1,0 +1,20 @@
+{
+    "itemGroup.betterfurnacesreforged": "§fBetter Furnaces Reforged",
+    "block.betterfurnacesreforged.cobblestone_generator": "§fGenerador de rocas",
+    "block.betterfurnacesreforged.diamond_furnace": "§fHorno de diamante",
+    "block.betterfurnacesreforged.extreme_forge": "§fForja Extrema",
+    "block.betterfurnacesreforged.extreme_furnace": "§fHorno extremo",
+    "block.betterfurnacesreforged.gold_furnace": "§fHorno de oro",
+    "block.betterfurnacesreforged.iron_furnace": "§fHorno de Hierro",
+    "block.betterfurnacesreforged.netherhot_furnace": "§fHorno del inframundo",
+    "block.betterfurnacesreforged.copper_furnace": "§fHorno de cobre",
+    "block.betterfurnacesreforged.ultimate_furnace": "§fHorno ultimate",
+    "block.betterfurnacesreforged.copper_forge": "§fForja de cobre",
+    "block.betterfurnacesreforged.iron_forge": "§fForja de hierro",
+    "block.betterfurnacesreforged.gold_forge": "§fForja de oro",
+    "block.betterfurnacesreforged.diamond_forge": "§fForja de diamante",
+    "block.betterfurnacesreforged.netherhot_forge": "§fForja del inframundo",
+    "block.betterfurnacesreforged.ultimate_forge": "§fForja ultimate",
+    "item.betterfurnacesreforged.color_upgrade": "§fMejora de colores",
+    "block.betterfurnacesreforged.fuel_verifier": "§fProbador de energía de combustible"
+}

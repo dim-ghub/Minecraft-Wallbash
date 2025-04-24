@@ -1,0 +1,19 @@
+{
+    "itemGroup.bakery.bakery_tab": "§fBakery",
+    "creativetab.bakery.tab": "§fBakery",
+    "bakery.container.cabinet": "§fCabinet",
+    "block.bakery.baker_station": "§fBaking Station",
+    "block.bakery.brick_stove": "§fBrick Oven",
+    "block.bakery.cabinet": "§fCabinet",
+    "block.bakery.cobblestone_stove": "§fCobblestone Stove",
+    "block.bakery.deepslate_stove": "§fDeepslate Stove",
+    "block.bakery.end_stove": "§fEndbrick Stove",
+    "block.bakery.granite_stove": "§fGranite Stove",
+    "block.bakery.mud_stove": "§fMud Stove",
+    "block.bakery.quartz_stove": "§fQuartz Stove",
+    "block.bakery.red_nether_bricks_stove": "§fRed Nether Bricks Stove",
+    "block.bakery.sandstone_stove": "§fSandstone Stove",
+    "block.bakery.small_cooking_pot": "§fSmall Cooking Pot",
+    "block.bakery.stone_bricks_stove": "§fStone Bricks Stove",
+    "entity.bakery.wandering_baker": "§fWandering Baker"
+}

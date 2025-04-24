@@ -1,0 +1,19 @@
+{
+    "itemGroup.bakery.bakery_tab": "§fBakery",
+    "creativetab.bakery.tab": "§fBakery",
+    "bakery.container.cabinet": "§fSchrank",
+    "block.bakery.baker_station": "§fKuchenstation",
+    "block.bakery.brick_stove": "§fHolzofen",
+    "block.bakery.cabinet": "§fSchrank",
+    "block.bakery.cobblestone_stove": "§fHolzofen aus Bruchstein",
+    "block.bakery.deepslate_stove": "§fHolzofen aus Tiefenschiefer",
+    "block.bakery.end_stove": "§fHolzofen aus Endsteinziegel",
+    "block.bakery.granite_stove": "§fHolzofen aus Granit",
+    "block.bakery.mud_stove": "§fHolzaufen aus Schlammziegel",
+    "block.bakery.quartz_stove": "§fHolzofen aus Quartz",
+    "block.bakery.red_nether_bricks_stove": "§fHolzofen aus roten Netherziegeln",
+    "block.bakery.sandstone_stove": "§fHolzofen aus Sandstein",
+    "block.bakery.small_cooking_pot": "§fKleiner Kochtopf",
+    "block.bakery.stone_bricks_stove": "§fHolzofen aus Steinziegeln",
+    "entity.bakery.wandering_baker": "§fWandernder Bäcker"
+}
