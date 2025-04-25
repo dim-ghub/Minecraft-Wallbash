@@ -79,4 +79,4 @@ EOF
     done
 done
 
-notify-send "✅ Wallbash Generation Complete" "All output has been written to the directories in mcdirs.conf."
+dunstify -i ~/.local/share/icons/Wallbash-Icon/hyde.png "✅ RP generated"
