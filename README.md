@@ -21,7 +21,7 @@ Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., fro
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. **Setup**
    - Uses the catppuccin Minecraft resource pack as a base
