@@ -49,7 +49,7 @@ Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., fro
 5. **Add Mode**
    - If run with `-a`, will prompt you to enter new resource pack directories
    - Accepts multiple entries until the you enter `done`
-   - Prompts the user to immediately run the script (defaults to "yes")
+   - Prompts you to immediately run the script (defaults to "yes")
 
 ---
 
