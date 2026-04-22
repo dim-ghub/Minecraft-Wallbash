@@ -104,25 +104,25 @@ PREV_FOCUSED=$(hyprctl activewindow -j 2>/dev/null | jq -r '.address' 2>/dev/nul
 
 MINECRAFT_ADDR=$(hyprctl clients -j 2>/dev/null | jq -r '.[] | select(.class | test("Minecraft"; "i")) | .address' 2>/dev/null | head -1)
 
-if pgrep -x ydotoold > /dev/null; then
-    YDOTOLD_WAS_RUNNING=1
-else
-    YDOTOLD_WAS_RUNNING=0
-    ydotoold &
-    sleep 0.5
-fi
-
 if [[ -n "$MINECRAFT_ADDR" ]]; then
+    if pgrep -x ydotoold > /dev/null; then
+        YDOTOLD_WAS_RUNNING=1
+    else
+        YDOTOLD_WAS_RUNNING=0
+        ydotoold &
+        sleep 0.5
+    fi
+
     hyprctl dispatch focuswindow "address:$MINECRAFT_ADDR"
     sleep 0.2
 
-ydotool key 61:1 20:1 20:0 61:0
+    ydotool key 61:1 20:1 20:0 61:0
 
     sleep 0.3
-fi
 
-if [[ $YDOTOLD_WAS_RUNNING -eq 0 ]]; then
-    pkill ydotoold
+    if [[ $YDOTOLD_WAS_RUNNING -eq 0 ]]; then
+        pkill ydotoold
+    fi
 fi
 
 if [[ -n "$PREV_FOCUSED" ]]; then
