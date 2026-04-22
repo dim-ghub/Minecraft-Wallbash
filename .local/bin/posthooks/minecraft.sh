@@ -62,7 +62,7 @@ mapfile -t REPLACEMENT_COLORS < <(
 [[ ${#REPLACEMENT_COLORS[@]} -eq 0 ]] && echo "No replacement colors!" && exit 1
 
 mapfile -t OUTPUT_DIRS < <(
-    sed 's|~|'"$HOME"'|' "$MC_DIRS_CONF" | sed 's|/*$||' | awk '{ print $0 "/caelestia" }'
+    sed 's/^[[:space:]]*//;s/[[:space:]]*$//' "$MC_DIRS_CONF" | grep -v '^$' | sed 's|~|'"$HOME"'|' | sed 's|/*$||' | awk '{ print $0 "/caelestia" }'
 )
 [[ ${#OUTPUT_DIRS[@]} -eq 0 ]] && echo "No output directories configured!" && exit 1
 
