@@ -109,14 +109,14 @@ if pgrep -x ydotoold > /dev/null; then
 else
     YDOTOLD_WAS_RUNNING=0
     ydotoold &
+    sleep 0.5
 fi
 
 if [[ -n "$MINECRAFT_ADDR" ]]; then
     hyprctl dispatch focuswindow "address:$MINECRAFT_ADDR"
     sleep 0.2
 
-    ydotool key 67:1 67:0
-    ydotool key 28:1 28:0
+ydotool key 61:1 20:1 20:0 61:0
 
     sleep 0.3
 fi

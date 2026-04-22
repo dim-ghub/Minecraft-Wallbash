@@ -31,6 +31,18 @@ Get it here: https://github.com/catppuccin/minecraft
 
 ---
 
+## Dependencies
+
+- rsync
+- python3
+- numpy
+- Pillow
+- ydotool
+- jq
+- hyprctl
+
+---
+
 ## How It Works
 
 1. **Setup**
