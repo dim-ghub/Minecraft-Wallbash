@@ -1,6 +1,6 @@
-# Wallbash Minecraft Resource Pack Generator
+# Caelestia Minecraft Resource Pack Generator
 
-This script generates a customized Minecraft resource pack by recoloring textures using Wallbash.
+This script generates a customized Minecraft resource pack by recoloring textures using Caelestia.
 
 It works with multiple Minecraft instances and outputs the processed files to a `caelestia` folder inside each configured resource pack directory.
 
@@ -11,7 +11,7 @@ It works with multiple Minecraft instances and outputs the processed files to a 
 - **Input textures**:
   `~/.local/bin/posthooks/minecraft/RP/`
 
-- **Wallbash colors**:
+- **Caelestia colors**:
   `~/.local/state/caelestia/theme/minecraft`
 
 - **Output directories**:
@@ -47,7 +47,7 @@ Get it here: https://github.com/catppuccin/minecraft
      - Converts to RGBA
      - For each non-transparent pixel:
        - Finds the closest base palette color
-       - Replaces it with the corresponding wallbash color (alpha preserved)
+       - Replaces it with the corresponding Caelestia color (alpha preserved)
      - Saves the modified image in the corresponding output path
    - Non-image files are copied unchanged
 
