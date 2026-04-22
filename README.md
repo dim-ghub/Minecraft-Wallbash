@@ -2,22 +2,30 @@
 
 This script generates a customized Minecraft resource pack by recoloring textures using Wallbash.
 
-It works with multiple Minecraft instances and outputs the processed files to a `wallbash` folder inside each configured resource pack directory.
+It works with multiple Minecraft instances and outputs the processed files to a `caelestia` folder inside each configured resource pack directory.
 
 ---
 
 ## Directory Layout
 
-- **Input textures**:  
-  `~/.config/hyde/wallbash/RP/`
+- **Input textures**:
+  `~/.local/bin/posthooks/minecraft/RP/`
 
-- **Wallbash colors**:  
-  `~/.cache/hyde/wallbash/minecraft.txt`
+- **Wallbash colors**:
+  `~/.local/state/caelestia/theme/minecraft`
 
-- **Output directories**:  
-  `~/.config/hyde/wallbash/scripts/mcdirs.conf`
+- **Output directories**:
+  `~/.local/bin/posthooks/minecraft/mcdirs.conf`
 
-Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., from ATLauncher or MultiMC). The script will automatically append `/wallbash` to each.
+Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., from ATLauncher or MultiMC). The script will automatically append `/caelestia` to each.
+
+---
+
+## Setup
+
+Download the latest Catppuccin Mocha Blue Minecraft resource pack and extract it to `~/.local/bin/posthooks/minecraft/RP/`.
+
+Get it here: https://github.com/catppuccin/minecraft
 
 ---
 
@@ -29,7 +37,7 @@ Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., fro
 
 2. **Output Directory Handling**
    - Reads output base paths from `mcdirs.conf`
-   - Expands `~` and adds `/wallbash` (unless it’s already included)
+   - Expands `~` and adds `/caelestia` (unless it’s already included)
 
 3. **File Processing**
    - Recursively scans the input directory
@@ -58,17 +66,17 @@ Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., fro
 ### Basic:
 
 ```bash
-~/.config/hyde/wallbash/scripts/minecraft.sh
+~/.local/bin/posthooks/minecraft.sh
 ```
 
 ### Verbose Logging:
 
 ```bash
-~/.config/hyde/wallbash/scripts/minecraft.sh -v
+~/.local/bin/posthooks/minecraft.sh -v
 ```
 
 ### Add Paths:
 
 ```bash
-~/.config/hyde/wallbash/scripts/minecraft.sh -a
+~/.local/bin/posthooks/minecraft.sh -a
 ```
