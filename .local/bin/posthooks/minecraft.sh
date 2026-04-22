@@ -84,7 +84,7 @@ while IFS= read -r -d '' file; do
         sep=","
         ((recolor_count++))
     done
-done < <(find "$INPUT_DIR" -type f -iregex '.*\.\(png\|jpe?g\)' -print0)
+done < <(find "$INPUT_DIR" -type f -iregex '.*\.\(png\|jpe?g\)' -not -name 'pack.png' -print0)
 
 echo "]" >> "$jobfile"
 
