@@ -29,6 +29,19 @@ Get it here: https://github.com/catppuccin/minecraft
 
 **Note:** On the first run, the script builds a color lookup table (~15-30s). Subsequent runs are nearly instant since it caches the table.
 
+Open the wallpaper picker (SUPER, >wallpapers) and reselect your wallpaper, it can be the same one.
+
+Run `~/.local/bin/posthooks/minecraft.sh -a`
+
+Paste in the path to your resourcepacks folder.
+
+If you want the script to be ran every time you change wallpapers:
+
+Edit `~/.config/caelestia/cli.json` and change the postHook to execute `~/.local/bin/posthooks/minecraft.sh`
+
+If the cli.json does not exist, please copy and paste in the example configuration from here:
+
+https://github.com/caelestia-dots/cli
 ---
 
 ## Dependencies
