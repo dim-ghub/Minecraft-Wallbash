@@ -27,6 +27,8 @@ Download the latest Catppuccin Mocha Blue Minecraft resource pack and extract it
 
 Get it here: https://github.com/catppuccin/minecraft
 
+**Note:** On the first run, the script builds a color lookup table (~15-30s). Subsequent runs are nearly instant since it caches the table.
+
 ---
 
 ## How It Works
