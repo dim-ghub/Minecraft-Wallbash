@@ -100,4 +100,27 @@ python3 "$PY_SCRIPT" < "$jobfile"
 echo "Done. $recolor_count image(s) recolored."
 rm -f "$jobfile"
 
-notify-send "Caelestia" "Resource pack generated!"
+PREV_FOCUSED=$(hyprctl activewindow -j 2>/dev/null | jq -r '.class' 2>/dev/null || echo "")
+
+if pgrep -x ydotoold > /dev/null; then
+    YDOTOLD_WAS_RUNNING=1
+else
+    YDOTOLD_WAS_RUNNING=0
+    ydotoold &
+fi
+
+hyprctl dispatch focuswindow "class:.*[Mm]inecraft.*"
+sleep 0.2
+
+ydotool key 67:1 67:0
+ydotool key 28:1 28:0
+
+sleep 0.3
+
+if [[ $YDOTOLD_WAS_RUNNING -eq 0 ]]; then
+    pkill ydotoold
+fi
+
+if [[ -n "$PREV_FOCUSED" ]]; then
+    hyprctl dispatch focuswindow "class:$PREV_FOCUSED"
+fi
