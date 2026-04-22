@@ -69,7 +69,6 @@ def recolor_image(job):
 
 
 def main():
-    print("Starting recolor.py", flush=True)
     jobs = json.load(sys.stdin)
     if not jobs:
         sys.exit("No jobs provided.")
@@ -87,7 +86,6 @@ def main():
     script_path = os.path.realpath(__file__)
     script_dir = os.path.dirname(script_path)
     cache_path = os.path.join(script_dir, "lut.npy")
-    print(f"Script dir: {script_dir}, cache: {cache_path}", file=sys.stderr, flush=True)
     lut = build_or_load_lut(base_palette, cache_path)
 
     for job in jobs:

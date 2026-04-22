@@ -65,6 +65,9 @@ for out in "${OUTPUT_DIRS[@]}"; do
 done
 
 log "Queueing image jobs..."
+BASE_PALETTE_JSON="[$(printf '"%s",' "${USED_COLORS[@]}" | sed 's/,$//')]"
+TARGET_PALETTE_JSON="[$(printf '"%s",' "${REPLACEMENT_COLORS[@]}" | sed 's/,$//')]"
+
 jobfile=$(mktemp)
 echo "[" > "$jobfile"
 sep=""
@@ -76,14 +79,8 @@ while IFS= read -r -d '' file; do
 
     for out in "${OUTPUT_DIRS[@]}"; do
         out_path="$out/$rel_path"
-        mkdir -p "$(dirname "$out_path")"
 
-        echo "${sep}{" >> "$jobfile"
-        echo "  \"img_path\": \"$file\"," >> "$jobfile"
-        echo "  \"out_path\": \"$out_path\"," >> "$jobfile"
-        echo "  \"base_palette\": [$(printf '"%s",' "${USED_COLORS[@]}" | sed 's/,$//')]," >> "$jobfile"
-        echo "  \"target_palette\": [$(printf '"%s",' "${REPLACEMENT_COLORS[@]}" | sed 's/,$//')]" >> "$jobfile"
-        echo "}" >> "$jobfile"
+        echo "${sep}{\"img_path\": \"$file\", \"out_path\": \"$out_path\", \"base_palette\": $BASE_PALETTE_JSON, \"target_palette\": $TARGET_PALETTE_JSON}" >> "$jobfile"
         sep=","
         ((recolor_count++))
     done
