@@ -58,9 +58,12 @@ mapfile -t OUTPUT_DIRS < <(
 )
 [[ ${#OUTPUT_DIRS[@]} -eq 0 ]] && echo "No output directories configured!" && exit 1
 
+SOURCE_DIR="$HOME/.local/bin/posthooks/minecraft"
+
 log "Syncing non-image files..."
 for out in "${OUTPUT_DIRS[@]}"; do
     mkdir -p "$out"
+    cp "$SOURCE_DIR/pack.png" "$SOURCE_DIR/pack.mcmeta" "$out/" 2>/dev/null || true
     rsync -a --exclude='*.png' --exclude='*.jpg' --exclude='*.jpeg' "$INPUT_DIR/" "$out/"
 done
 
