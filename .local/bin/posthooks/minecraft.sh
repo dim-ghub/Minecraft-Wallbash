@@ -100,7 +100,9 @@ python3 "$PY_SCRIPT" < "$jobfile"
 echo "Done. $recolor_count image(s) recolored."
 rm -f "$jobfile"
 
-PREV_FOCUSED=$(hyprctl activewindow -j 2>/dev/null | jq -r '.class' 2>/dev/null || echo "")
+PREV_FOCUSED=$(hyprctl activewindow -j 2>/dev/null | jq -r '.address' 2>/dev/null || echo "")
+
+MINECRAFT_ADDR=$(hyprctl clients -j 2>/dev/null | jq -r '.[] | select(.class | test("Minecraft"; "i")) | .address' 2>/dev/null | head -1)
 
 if pgrep -x ydotoold > /dev/null; then
     YDOTOLD_WAS_RUNNING=1
@@ -109,18 +111,20 @@ else
     ydotoold &
 fi
 
-hyprctl dispatch focuswindow "class:.*[Mm]inecraft.*"
-sleep 0.2
+if [[ -n "$MINECRAFT_ADDR" ]]; then
+    hyprctl dispatch focuswindow "address:$MINECRAFT_ADDR"
+    sleep 0.2
 
-ydotool key 67:1 67:0
-ydotool key 28:1 28:0
+    ydotool key 67:1 67:0
+    ydotool key 28:1 28:0
 
-sleep 0.3
+    sleep 0.3
+fi
 
 if [[ $YDOTOLD_WAS_RUNNING -eq 0 ]]; then
     pkill ydotoold
 fi
 
 if [[ -n "$PREV_FOCUSED" ]]; then
-    hyprctl dispatch focuswindow "class:$PREV_FOCUSED"
+    hyprctl dispatch focuswindow "address:$PREV_FOCUSED"
 fi
