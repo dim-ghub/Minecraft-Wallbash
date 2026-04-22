@@ -103,6 +103,7 @@ rm -f "$jobfile"
 PREV_FOCUSED=$(hyprctl activewindow -j 2>/dev/null | jq -r '.address' 2>/dev/null || echo "")
 
 MINECRAFT_ADDR=$(hyprctl clients -j 2>/dev/null | jq -r '.[] | select(.class | test("Minecraft"; "i")) | .address' 2>/dev/null | head -1)
+DID_FOCUS=0
 
 if [[ -n "$MINECRAFT_ADDR" ]]; then
     if pgrep -x ydotoold > /dev/null; then
@@ -114,6 +115,7 @@ if [[ -n "$MINECRAFT_ADDR" ]]; then
     fi
 
     hyprctl dispatch focuswindow "address:$MINECRAFT_ADDR"
+    DID_FOCUS=1
     sleep 0.2
 
     ydotool key 61:1 20:1 20:0 61:0
@@ -125,6 +127,6 @@ if [[ -n "$MINECRAFT_ADDR" ]]; then
     fi
 fi
 
-if [[ -n "$PREV_FOCUSED" ]]; then
+if [[ $DID_FOCUS -eq 1 && -n "$PREV_FOCUSED" ]]; then
     hyprctl dispatch focuswindow "address:$PREV_FOCUSED"
 fi
