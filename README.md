@@ -60,7 +60,7 @@ https://github.com/caelestia-dots/cli
 
 1. **Setup**
    - Uses the catppuccin Minecraft resource pack as a base
-   - Reads colors from `minecraft.txt`, trims whitespace, validates hex format, and limits to the size of the base palette
+   - Reads colors from `minecraft`, trims whitespace, validates hex format, and limits to the size of the base palette
 
 2. **Output Directory Handling**
    - Reads output base paths from `mcdirs.conf`
