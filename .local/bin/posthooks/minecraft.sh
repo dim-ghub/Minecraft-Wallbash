@@ -4,14 +4,6 @@ INPUT_DIR="$HOME/.local/bin/posthooks/minecraft/RP"
 HIGHLIGHT_FILE="$HOME/.local/state/caelestia/theme/minecraft"
 MC_DIRS_CONF="$HOME/.local/bin/posthooks/minecraft/mcdirs.conf"
 PY_SCRIPT="$HOME/.local/bin/posthooks/minecraft/recolor.py"
-VENV_DIR="$HOME/.local/bin/posthooks/minecraft/.venv"
-
-if [[ ! -d "$VENV_DIR" ]]; then
-    python3 -m venv "$VENV_DIR"
-    "$VENV_DIR/bin/pip" install pillow numpy
-fi
-
-PYTHON="$VENV_DIR/bin/python"
 
 USED_COLORS=(
     "#9399b2" "#7f849c" "#6c7086" "#585b70"
@@ -106,7 +98,7 @@ if [[ $recolor_count -eq 0 ]]; then
 fi
 
 log "Recoloring $recolor_count image(s)..."
-"$PYTHON" "$PY_SCRIPT" < "$jobfile"
+python3 "$PY_SCRIPT" < "$jobfile"
 
 echo "Done. $recolor_count image(s) recolored."
 rm -f "$jobfile"
