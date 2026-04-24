@@ -13,6 +13,7 @@ fi
 
 # Dynamically find the project root regardless of where this script is called from
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 POSTHOOKS_DIR="$HOME/.local/bin/posthooks"
 TEMPLATES_DIR="$HOME/.config/caelestia/templates"
@@ -24,8 +25,8 @@ if [[ -e "$TEMPLATES_DIR/minecraft" ]]; then
     echo "                    CLEAN UP / UPDATE"
     echo "============================================================"
     echo "Previous installation exists, cleaning and updating..."
-    chmod +x "$SCRIPT_DIR/uninstall.sh"
-    "$SCRIPT_DIR/uninstall.sh"
+    chmod +x "$PROJECT_ROOT/scripts/uninstall.sh"
+    "$PROJECT_ROOT/scripts/uninstall.sh"
 fi
 # ------------------------
 
@@ -64,8 +65,8 @@ fi
 
 mkdir -p "$POSTHOOKS_DIR/minecraft/RP"
 mkdir -p "$TEMPLATES_DIR"
-cp -r "$SCRIPT_DIR/.local/bin/posthooks"/* "$POSTHOOKS_DIR/"
-cp -r "$SCRIPT_DIR/.config/caelestia/templates"/* "$TEMPLATES_DIR"
+cp -r "$PROJECT_ROOT/posthook"/* "$POSTHOOKS_DIR/"
+cp -r "$PROJECT_ROOT/template"/* "$TEMPLATES_DIR"
 
 # ------------------------
 
@@ -80,7 +81,7 @@ echo "Reloading wallpaper..."
 WALLPAPER_FILE=$(caelestia wallpaper)
 caelestia wallpaper -f $WALLPAPER_FILE
 read -p "Path to your Minecraft Catppucin resource pack: " rp_path
-"$SCRIPT_DIR/set-rp.sh" $rp_path
+"$PROJECT_ROOT/scripts/set-rp.sh" $rp_path
 if [ $? -ne 0 ]; then
     exit 1
 fi

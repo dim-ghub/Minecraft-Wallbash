@@ -18,8 +18,9 @@ if ! [ -f "$POSTHOOKS_DIR/minecraft.sh" ]; then
     read -p "Theme not installed. Install now? [Y/n]: " install_now
     if [[ -z "$install_now" ]] || [[ "$install_now" =~ ^[Yy]$ ]]; then
         SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-        chmod +x "$SCRIPT_DIR/install.sh"
-        "$SCRIPT_DIR/install.sh"
+        PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+        chmod +x "$PROJECT_ROOT/scripts/install.sh"
+        "$PROJECT_ROOT/scripts/install.sh"
         exit 0
     fi
 fi
