@@ -30,4 +30,4 @@ if ! command -v unzip >/dev/null; then
     echo "unzip is not installed. Please install it and try again." >&2
     exit 1
 fi
-unzip -q $rp_path -d "$POSTHOOKS_DIR/minecraft/RP/$(basename $rp_path)"
+unzip -q $rp_path -d "$POSTHOOKS_DIR/minecraft/RP"
