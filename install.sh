@@ -24,6 +24,7 @@ if [[ -e "$TEMPLATES_DIR/minecraft" ]]; then
 fi
 # ------------------------
 
+# --- installation ---
 echo ""
 echo "============================================================"
 echo "                       INSTALLING"
@@ -45,13 +46,13 @@ MISSING_PKGS=()
 for pkg in "${DEPENDENCIES[@]}"; do
     if ! pacman -Qs "$pkg" > /dev/null; then
         MISSING_PKGS+=("$pkg")
+        echo "Missing package: $pkg"
     fi
 done
 
 if [ ${#MISSING_PKGS[@]} -gt 0 ]; then
-    echo "📦 Missing packages found: ${MISSING_PKGS[*]}"
-    echo "Installing missing dependencies..."
-    sudo pacman -S --noconfirm "${MISSING_PKGS[@]}"
+    echo "Please install the dependencies and try again!"
+    exit 1
 else
     echo "✓ All dependencies met."
 fi
@@ -73,5 +74,10 @@ echo "============================================================"
 echo "Reloading wallpaper..."
 WALLPAPER_FILE=$(caelestia wallpaper)
 caelestia wallpaper -f $WALLPAPER_FILE
+read -p "Path to your Minecraft Catppucin resource pack: " rp_path
+"$SCRIPT_DIR/set-rp.sh" $rp_path
+if [ $? -ne 0 ]; then
+    exit 1
+fi
 "$HOME/.local/bin/posthooks/minecraft.sh" -a
-echo "Done! Don't forget to add `~/.local/bin/posthooks/minecraft.sh` to your posthook if you want to automate the process."
+echo "Done! Don't forget to add ~/.local/bin/posthooks/minecraft.sh to your posthook if you want to automate the process."
