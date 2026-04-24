@@ -6,6 +6,11 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
+if [ $# -ne 0 ]; then
+    echo "usage: $(basename "$(realpath "$0")")" >&2
+    exit 1
+fi
+
 # Dynamically find the project root regardless of where this script is called from
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

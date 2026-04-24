@@ -6,6 +6,11 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
+if [ $# -ne 0 ]; then
+    echo "usage: $(basename "$(realpath "$0")")" >&2
+    exit 1
+fi
+
 POSTHOOKS_DIR="$HOME/.local/bin/posthooks"
 TEMPLATE_FILE="$HOME/.config/caelestia/templates/minecraft"
 HIGHLIGHT_FILE="$HOME/.local/state/caelestia/theme/minecraft"
