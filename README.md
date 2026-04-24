@@ -8,6 +8,8 @@ It works with multiple Minecraft instances and outputs the processed files to a 
 
 ## Setup
 
+Clone this repo.
+
 Download the Catppuccin Mocha Blue Minecraft resource pack corresponding to your Minecraft version.
 
 Get it here: https://github.com/catppuccin/minecraft
