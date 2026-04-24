@@ -56,11 +56,22 @@ else
     echo "✓ All dependencies met."
 fi
 
-mkdir -p "$POSTHOOKS_DIR"
+mkdir -p "$POSTHOOKS_DIR/minecraft/RP"
 mkdir -p "$TEMPLATES_DIR"
 cp -r "$SCRIPT_DIR/.local/bin/posthooks"/* "$POSTHOOKS_DIR/"
 cp -r "$SCRIPT_DIR/.config/caelestia/templates"/* "$TEMPLATES_DIR"
 
 # ------------------------
 
-echo "Done! Reload your wallpaper and run 'add-output-dir' to add output directories. Don't forget to add the script to your posthook if you want to automate the process."
+# ------------------------
+
+echo ""
+echo "============================================================"
+echo "                         SETUP"
+echo "============================================================"
+
+echo "Reloading wallpaper..."
+WALLPAPER_FILE=$(caelestia wallpaper)
+caelestia wallpaper -f $WALLPAPER_FILE
+"$HOME/.local/bin/posthooks/minecraft.sh" -a
+echo "Done! Don't forget to add `~/.local/bin/posthooks/minecraft.sh` to your posthook if you want to automate the process."
