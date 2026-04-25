@@ -19,13 +19,13 @@ POSTHOOKS_DIR="$HOME/.local/bin/posthooks"
 TEMPLATES_DIR="$HOME/.config/caelestia/templates"
 
 # --- Check for existing installation ---
+chmod +x "$PROJECT_ROOT/scripts/uninstall.sh"
 if [[ -e "$TEMPLATES_DIR/minecraft" ]]; then
     echo ""
     echo "============================================================"
     echo "                    CLEAN UP / UPDATE"
     echo "============================================================"
     echo "Previous installation exists, cleaning and updating..."
-    chmod +x "$PROJECT_ROOT/scripts/uninstall.sh"
     "$PROJECT_ROOT/scripts/uninstall.sh"
 fi
 # ------------------------
@@ -81,6 +81,7 @@ echo "Reloading wallpaper..."
 WALLPAPER_FILE=$(caelestia wallpaper)
 caelestia wallpaper -f $WALLPAPER_FILE
 read -p "Path to your Minecraft Catppucin resource pack: " rp_path
+chmod +x "$PROJECT_ROOT/scripts/set-rp.sh"
 "$PROJECT_ROOT/scripts/set-rp.sh" $rp_path || exit 1
 "$HOME/.local/bin/posthooks/minecraft.sh" -a
 echo "Done! Don't forget to add ~/.local/bin/posthooks/minecraft.sh to your posthook if you want to automate the process."

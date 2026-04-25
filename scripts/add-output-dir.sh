@@ -27,3 +27,5 @@ fi
 # ------------------------
 
 "$POSTHOOKS_DIR/minecraft.sh" -a
+
+echo "You can remove an output directory at any time by modifying ~/.local/bin/posthooks/minecraft/mcdirs.conf!"
