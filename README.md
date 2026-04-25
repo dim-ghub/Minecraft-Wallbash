@@ -6,34 +6,17 @@ It works with multiple Minecraft instances and outputs the processed files to a 
 
 ---
 
-## Directory Layout
-
-- **Input textures**:
-  `~/.local/bin/posthooks/minecraft/RP/`
-
-- **Caelestia colors**:
-  `~/.local/state/caelestia/theme/minecraft`
-
-- **Output directories**:
-  `~/.local/bin/posthooks/minecraft/mcdirs.conf`
-
-Each line in `mcdirs.conf` should be a Minecraft resourcepacks folder (e.g., from ATLauncher or MultiMC). The script will automatically append `/caelestia` to each.
-
----
-
 ## Setup
 
-Download the latest Catppuccin Mocha Blue Minecraft resource pack and extract it to `~/.local/bin/posthooks/minecraft/RP/`.
+Clone this repo.
+
+Download the Catppuccin Mocha Blue Minecraft resource pack corresponding to your Minecraft version.
 
 Get it here: https://github.com/catppuccin/minecraft
 
+Run `scripts/install.sh` and follow the instructions.
+
 **Note:** On the first run, the script builds a color lookup table (~15-30s). Subsequent runs are nearly instant since it caches the table.
-
-Open the wallpaper picker (SUPER, >wallpapers) and reselect your wallpaper, it can be the same one.
-
-Run `~/.local/bin/posthooks/minecraft.sh -a`
-
-Paste in the path to your resourcepacks folder.
 
 If you want the script to be ran every time you change wallpapers:
 
@@ -42,6 +25,7 @@ Edit `~/.config/caelestia/cli.json` and change the postHook to execute `~/.local
 If the cli.json does not exist, please copy and paste in the example configuration from here:
 
 https://github.com/caelestia-dots/cli
+
 ---
 
 ## Dependencies
@@ -107,3 +91,15 @@ https://github.com/caelestia-dots/cli
 ```bash
 ~/.local/bin/posthooks/minecraft.sh -a
 ```
+or
+`scripts/add-output-dir.sh`
+
+### Set source resource pack:
+
+`scripts/set-rp.sh`
+
+### Uninstall everything:
+
+`scripts/uninstall.sh`
+
+**Note:** The resource packs will still be in the Minecraft instances but won't update anymore!
