@@ -52,25 +52,24 @@ PYTHON_DEPS=(
 )
 
 echo "Checking dependencies..."
-MISSING_PKGS=()
+missing_dep=0
 
 for pkg in "${DEPENDENCIES[@]}"; do
     if ! command -v "$pkg" > /dev/null; then
-        MISSING_PKGS+=("$pkg")
-        echo "Missing package: $pkg"
+        missing_dep=1
+        echo "Missing dependency: $pkg" >&2
     fi
 done
 
 for pkg in "${PYTHON_DEPS[@]}"; do
-    python3 -c "import $pkg" > /dev/null 2>&1
-    if [ "$?" = "1" ]; then
-        MISSING_PKGS+=("$pkg")
-        echo "Missing python package: $pkg"
+    if ! python3 -c "import $pkg" > /dev/null; then
+        missing_dep=1
+        echo "Missing python dependency: $pkg" >&2
     fi
 done
 
-if [ ${#MISSING_PKGS[@]} -gt 0 ]; then
-    echo "Please install the dependencies and try again!"
+if [ $missing_dep -ne 0 ]; then
+    echo "Please install dependencies and try again!"
     exit 1
 else
     echo "✓ All dependencies met."
