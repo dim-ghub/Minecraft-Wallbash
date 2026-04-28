@@ -36,28 +36,40 @@ echo "============================================================"
 echo "                       INSTALLING"
 echo "============================================================"
 
+# Check package dependencies
+
 DEPENDENCIES=(
     "rsync"
     "python3"
-    "python-numpy"
-    "python-pillow"
     "ydotool"
     "jq"
     "hyprland"
 )
 
+PYTHON_DEPS=(
+    "numpy"
+    "PIL"
+)
+
 echo "Checking dependencies..."
-MISSING_PKGS=()
+missing_dep=0
 
 for pkg in "${DEPENDENCIES[@]}"; do
-    if ! pacman -Qs "$pkg" > /dev/null; then
-        MISSING_PKGS+=("$pkg")
-        echo "Missing package: $pkg"
+    if ! command -v "$pkg" > /dev/null; then
+        missing_dep=1
+        echo "Missing dependency: $pkg" >&2
     fi
 done
 
-if [ ${#MISSING_PKGS[@]} -gt 0 ]; then
-    echo "Please install the dependencies and try again!"
+for pkg in "${PYTHON_DEPS[@]}"; do
+    if ! python3 -c "import $pkg" > /dev/null; then
+        missing_dep=1
+        echo "Missing python dependency: $pkg" >&2
+    fi
+done
+
+if [ $missing_dep -ne 0 ]; then
+    echo "Please install dependencies and try again!"
     exit 1
 else
     echo "✓ All dependencies met."
